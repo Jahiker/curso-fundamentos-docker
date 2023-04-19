@@ -72,3 +72,21 @@ localhost:8080 (desde mi navegador compruebo que funcione)
 - docker logs container-name (veo los logs)
 - docker logs -f container-name (hago un follow del log)
 - docker logs --tail 10 -f container-name (veo y sigo solo las 10 últimas entradas del log)
+
+## DB
+
+-- docker run -d --name container-name mongo (creamos un contenedor para bases de datos mongodb)
+-- docker exec -it db bash (entramos al contenedor ejecutando un bash)
+-- use db-name (carga la base de datos y si no existe la crea)
+
+## BIND MOUNTS
+
+- bindea directorios de la maquina host a contenedores
+- docker run -d --name db -v C:\wamp64\www\dockerdata\mongodata:/data/db mongo (con el flag -v bindeamos un directorio de la maquina host al contenedor -v path-host-directory:container-directory)
+
+## VOLUMENES
+
+- Son espacion en la maquina host que son manejados por docker y nosotros como usuarios no tenemos acceso
+- docker volume create volume-name (cramos un volume)
+- docker volume ls (listamos todos los volumenes creados por docker)
+- docker run -d --name db --mount src=volume-name,dst=destination-path image-name
