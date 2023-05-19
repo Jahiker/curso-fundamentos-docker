@@ -90,3 +90,32 @@ localhost:8080 (desde mi navegador compruebo que funcione)
 - docker volume create volume-name (cramos un volume)
 - docker volume ls (listamos todos los volumenes creados por docker)
 - docker run -d --name db --mount src=volume-name,dst=destination-path image-name
+
+## INTERTAR O EXTRAER ARCHIVOS DE UN CONTENEDOR
+
+- docker cp file.txt copytest:/testing/file.txt (Insertar un archivo al contenedor)
+- docker cp copytest:/testing/test.txt file.txt (Extrae un archivo al contenedor)
+
+## IMAGENES DOCKER
+
+- Las imagenes son plantillas o moldes para crear nuevos contenedores
+- las imagenes se contruyen a partir de un Dockerfile, se genera un build a partir del build se puede hacer un run y se genera un contenedor
+- docker image ls (Listar todas las imagenes que tenemos en los contenedores)
+- docker pull imagename:version (Descarga una imagen de la version indicada desde el repositorio de docker hub)
+- docker build -t image-name:image-tag . (Realiza un build de una nueva imagen de numbre ubunto en la version de platzi y el punto significa que es en el directorio actual)
+- docker tag image-name:image-tag new-image-name:image-tag (Renombra el nombre de una imagen)
+- docker push image-name:image-tag (Guarda en tu respositorio personal de imagenes en docker hub la imagen indicada)
+
+## NETWORK
+
+- docker network create network-name (Crear una nueva network)
+- docker network create --attachable network-name (Crea una network que puede ser compartida entre contenedores)
+- docker network connect network-name container-name (Conecta un contenedor a una network)
+
+## DOCKER COMPOSE
+
+- docker-compose up (Lee el archivo de configuracion doecker-compose y crea el contenedor)
+- docker-compose up -d (Lee el archivo de configuracion doecker-compose y crea el contenedor sin mostrar los logs)
+- docker-compose exec app bash (Ejecuta el contenedor y abre el bash)
+- docker-compose down (Mata todo los procesos de docker compose)
+- docker-compose build app (regenera solo el servicio app)
